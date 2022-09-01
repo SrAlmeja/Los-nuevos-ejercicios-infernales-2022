@@ -15,6 +15,9 @@ public class Seeking : MonoBehaviour
     Vector3 desiredv;
     Vector3 currentv;
     Vector3 steering;
+    float xSpeed;
+    float ySpeed;
+    float distanceSpeed;
 
     public GameObject enemy;
     public GameObject target;
@@ -34,41 +37,19 @@ public class Seeking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TheCameraFunction();
-        SeekingAlgorithm();
+        Seek();
     }
-
-    void TheCameraFunction()
-    {
-        // Vector3 point = new Vector3();
-        // Event currentEvent = Event.current;
-        // mousPos = new Vector2();
-        // mousPos.x = currentEvent.mousePosition.x;
-        // mousPos.y = cam.pixelHeight - currentEvent.mousePosition.y;
-        // point = cam.ScreenToWorldPoint(new Vector3(mousPos.x, mousPos.y, cam.nearClipPlane));
-        // GUILayout.BeginArea(new Rect(20, 20, 250, 120));
-        // GUILayout.Label("Screen pixels: " + cam.pixelWidth + ":" + cam.pixelHeight);
-        // GUILayout.Label("Mouse position: " + mousPos);
-        // GUILayout.Label("World position: " + point.ToString("F3"));
-        // GUILayout.EndArea();
-    }
-
+    
     void Seek()
     {
+        //Setting Position
         Vector2 enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
         Vector2 targetPos = new Vector2(target.transform.position.x, target.transform.position.y);
-        distance = (enemyPos - targetPos);
+        //Direction
+        distance = (targetPos - enemyPos);
         desiredv = (distance.normalized * speed);
         steering = (desiredv - currentv);
         currentv += steering * Time.deltaTime;
         transform.position += (currentv * Time.deltaTime);
-        
-
-    }
-    void SeekingAlgorithm()
-    {
-        // distance = (mousPos - enemyPos);
-        // currentv = Vector3.zero;
-        
     }
 }
