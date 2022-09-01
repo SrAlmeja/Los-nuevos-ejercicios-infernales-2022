@@ -6,19 +6,26 @@ using UnityEngine.UIElements;
 
 public class Seeking : MonoBehaviour
 {
-    [SerializeField] BoolVariable isOnArea;
+    // private Camera cam;
+    // Vector2 mousPos;
+    // Vector2 enemyPos;
+    
     Vector3 distance; 
     public float speed;
-    Vector3 finalSpeed;
-    public float mass;
-    float acelerationSpeed;
-    Vector3 aceleration;
     Vector3 desiredv;
     Vector3 currentv;
     Vector3 steering;
+    float xSpeed;
+    float ySpeed;
     float distanceSpeed;
+
     public GameObject enemy;
     public GameObject target;
+    
+    private void Awake()
+    {
+        //mousPos = Input.mousePosition;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,25 +36,18 @@ public class Seeking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Seek();
+        Seek();
     }
+    
     void Seek()
     {
-        speed = 10;
-        //Setting Position
         Vector2 enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
         Vector2 targetPos = new Vector2(target.transform.position.x, target.transform.position.y);
         //Direction
         distance = (targetPos - enemyPos);
-        desiredv = (distance.normalized * acelerationSpeed);
+        desiredv = (distance.normalized * speed);
         steering = (desiredv - currentv);
         currentv += steering * Time.deltaTime;
-        //SpeedAceleration
-        finalSpeed = (distance/Time.deltaTime);
-        aceleration = (finalSpeed.normalized * speed);
-        acelerationSpeed = (((aceleration.x * mass) + (aceleration.y *  mass))/Time.deltaTime);
-        
         transform.position += (currentv * Time.deltaTime);
     }
 }
-    
