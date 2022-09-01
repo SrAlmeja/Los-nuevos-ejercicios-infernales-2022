@@ -1190,8 +1190,10 @@ GameObject:
   - component: {fileID: 507898881}
   - component: {fileID: 507898880}
   - component: {fileID: 507898879}
+  - component: {fileID: 507898885}
   - component: {fileID: 507898878}
   - component: {fileID: 507898883}
+  - component: {fileID: 507898884}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1311,9 +1313,6 @@ MonoBehaviour:
   speed: 10
   enemies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   walls:
   - {fileID: 1444932909}
   - {fileID: 668658917}
@@ -1348,6 +1347,34 @@ MonoBehaviour:
   - {fileID: 101766470}
   - {fileID: 1247307218}
   player: {fileID: 507898877}
+--- !u!114 &507898884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507898877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8acf75685e282429b9b98004a6f961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalState: {fileID: 507898885}
+  PersecutionState: {fileID: 507898878}
+  InitialState: {fileID: 507898885}
+--- !u!114 &507898885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507898877}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2fe560eb326f48b4c25499352d659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnArea: {fileID: 0}
 --- !u!1 &543949067
 GameObject:
   m_ObjectHideFlags: 0

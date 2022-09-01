@@ -6,6 +6,12 @@ using UnityEngine;
 public class DetectionArea : MonoBehaviour
 {
     [SerializeField] public BoolVariable isOnArea;
+    private StateMachineController stateMachineController;
+
+    private void Awake()
+    {
+        stateMachineController = GetComponent<StateMachineController>();
+    }
 
     private void Start()
     {
@@ -13,22 +19,32 @@ public class DetectionArea : MonoBehaviour
         return;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.tag == "Player")
+        if (isOnArea)
+        {
+            stateMachineController.ActivationState(stateMachineController.PersecutionState);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
             isOnArea.Value = true;
             Debug.Log("Toque al jugador");
+            stateMachineController.ActivationState(stateMachineController.PersecutionState);
             return;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             isOnArea.Value = false;
             Debug.Log("Deje de tocarlo");
+            stateMachineController.ActivationState(stateMachineController.NormalState);
             return;
         }
     }
