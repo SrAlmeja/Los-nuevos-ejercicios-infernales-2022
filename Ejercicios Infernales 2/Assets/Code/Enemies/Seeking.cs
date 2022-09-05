@@ -21,6 +21,8 @@ public class Seeking : MonoBehaviour
 
     public GameObject enemy;
     public GameObject target;
+
+    public float mass;
     
     private void Awake()
     {
@@ -46,8 +48,8 @@ public class Seeking : MonoBehaviour
         //Direction
         distance = (targetPos - enemyPos);
         desiredv = (distance.normalized * speed);
-        steering = (desiredv - currentv);
-        currentv += steering * Time.deltaTime;
+        steering = (desiredv - currentv) / mass;
+        currentv += (steering) * Time.deltaTime;
         transform.position += (currentv * Time.deltaTime);
     }
 }
