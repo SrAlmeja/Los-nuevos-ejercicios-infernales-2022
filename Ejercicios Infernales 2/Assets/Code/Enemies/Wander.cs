@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Wander : Seeking
 {
-    public GameObject circle;
-    public Vector2 velocity = Vector3.zero;
-    public Vector2 randomTarget;
     public float speed;
     public float circleDistance;
     public float radius;
