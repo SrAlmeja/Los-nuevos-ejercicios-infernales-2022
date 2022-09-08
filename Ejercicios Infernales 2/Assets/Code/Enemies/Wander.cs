@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wander : MonoBehaviour
+public class Wander : Seeking
 {
     public GameObject circle;
     public Vector2 velocity = Vector3.zero;
