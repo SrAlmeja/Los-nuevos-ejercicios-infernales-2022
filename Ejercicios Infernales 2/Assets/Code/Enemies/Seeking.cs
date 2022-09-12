@@ -23,7 +23,7 @@ public class Seeking : MonoBehaviour
     public GameObject target;
 
     public float mass;
-    
+
     private void Awake()
     {
         //mousPos = Input.mousePosition;
