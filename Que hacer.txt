@@ -1,2 +1,4 @@
 Clase que herede de zombie
 Expandir comportamiento del zombie.
+
+Pintar los planos al tocarlos
