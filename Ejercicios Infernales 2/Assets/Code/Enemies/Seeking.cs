@@ -15,9 +15,6 @@ public class Seeking : MonoBehaviour
     Vector3 desiredv;
     Vector3 currentv;
     Vector3 steering;
-    float xSpeed;
-    float ySpeed;
-    float distanceSpeed;
 
     public GameObject enemy;
     public GameObject target;
