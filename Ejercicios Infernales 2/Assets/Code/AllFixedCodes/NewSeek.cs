@@ -17,9 +17,6 @@ public class NewSeek : MonoBehaviour
     Vector3 distance;
 
     public float slowDistance, stopDistance;
-    
-    
-    
     public float mass;
     void Start()
     {

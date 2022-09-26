@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8443686765a8e24584997f27fb3290c, type: 3}
-  m_Name: AreaToSearch
+  m_Script: {fileID: 11500000, guid: 55c18a3ef97c861428ec26811b273dcf, type: 3}
+  m_Name: Points
   m_EditorClassIdentifier: 
-  DeveloperDescription: Activa el harea de busqueda del enemigo
+  DeveloperDescription: Puntos recolectables
   Value: 0
