@@ -16,17 +16,14 @@ public class GridGenerator : MonoBehaviour
     {
         for (int i = 0; i <height; i++)
         {
+            piso = Instantiate(panels, new Vector3(i+(panels.transform.position.x/3 + 1),0,0), transform.rotation);
             for (int j = 0; j < width; j++)
             {
-                piso = Instantiate(panels, new Vector3(i*(panels.transform.position.x/2 + 1),0,0), transform.rotation);
-                piso = Instantiate(panels, new Vector3(i*(panels.transform.position.x/2 + 1),0 ,j*(panels.transform.position.z/2 + 1)), transform.rotation);
+                piso.name = $"{i}-{j}";
+                
+                piso = Instantiate(panels, new Vector3(i+(panels.transform.position.x/3 + 1),0 ,j+(panels.transform.position.z/2 + 1)), transform.rotation);
+                piso.name = j.ToString();
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
