@@ -52,7 +52,6 @@ public class NewSeek : MonoBehaviour
         { 
             currentV = steering * 0f;
         }
-        Debug.Log(currentV);
         transform.position += ((currentV) * Time.deltaTime);
     }
 }

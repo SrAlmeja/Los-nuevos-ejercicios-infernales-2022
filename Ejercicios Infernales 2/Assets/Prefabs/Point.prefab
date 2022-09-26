@@ -7,9 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238535329976226946, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1467992023675790649, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
       propertyPath: m_Name
       value: Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467992023675790649, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
+      propertyPath: m_TagString
+      value: Points
       objectReference: {fileID: 0}
     - target: {fileID: 5509883081364583998, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
       propertyPath: m_RootOrder
@@ -55,24 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8214064011986583331, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8f52af05df475c4b824732a637a9ca4, type: 2}
+    m_RemovedComponents:
+    - {fileID: 2589498741571901106, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
---- !u!1 &3321004668190686099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1467992023675790649, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
-  m_PrefabInstance: {fileID: 4200115527641079466}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6258535429173238865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321004668190686099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4342e7b52b2dbca4b8c9f73e3bc48c3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: {fileID: 11400000, guid: 2d895b00da6fbea4d98eb26c83578607, type: 2}
-  pointsText: {fileID: 0}

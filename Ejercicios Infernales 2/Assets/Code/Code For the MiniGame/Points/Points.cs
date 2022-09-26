@@ -7,28 +7,36 @@ using TMPro;
 
 public class Points : MonoBehaviour
 {
-    public IntVariables points;
-    [SerializeField] TextMeshPro pointsText;
+    [SerializeField] IntVariables points;
+    public TextMeshProUGUI pointsText;
 
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         points.Value = 0;
     }
 
     private void Update()
     {
-        
+        points.Value = Math.Clamp(points.Value, 00, 40);
         pointsText.text = points.Value.ToString();
     }
 
-    private void OnTriggerEnter(Collider other)
+    
+    
+    private void OnTriggerEnter(/*GameObject primitive, GameObject go, */Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        Debug.Log("Funciona el trigger");
+        if (other.gameObject.CompareTag("Points"))
         {
-            points.Value++;
+            Debug.Log("Me tocan");
+            points.Value ++;
         }
-
+        // if (other.gameObject.CompareTag("Points"))
+        // //     {
+        // //         ObjectPooler.RecicleObject(primitive, go);
+        // //     }
     }
+
 }

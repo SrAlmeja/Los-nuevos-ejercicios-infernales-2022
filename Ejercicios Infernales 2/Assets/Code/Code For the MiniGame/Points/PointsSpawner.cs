@@ -19,11 +19,16 @@ public class PointsSpawner : MonoBehaviour
 
 private void Start()
     {
+        Vector3 vector = SpawnPosition();
+        
         ObjectPooler.PreLoad(normalPoints, sizeNP);
         ObjectPooler.PreLoad(scurryPoints, sizeSP);
         ObjectPooler.PreLoad(veryScurryPoints, sizeVSP);
         ObjectPooler.PreLoad(enemies, sizeE);
         ObjectPooler.PreLoad(followPoints, sizeFO);
+        
+        GameObject nnp = ObjectPooler.GetObject(normalPoints);
+        nnp.transform.position = vector;
     }
 
     private void Update()
