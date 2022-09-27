@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClickTarget Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7403263467122729174, guid: da9c7f8af0c4f3a4a922f0d7ef692066, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7403263467122729175, guid: da9c7f8af0c4f3a4a922f0d7ef692066, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -102,3 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c61264af22f13c4f96d4e04c64c7f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetToMove: {fileID: 0}
+  cam: {fileID: 0}

@@ -13,7 +13,7 @@ public class NewSeek : MonoBehaviour
     Vector3 myPosition;
     Vector3 desiredV;
     Vector3 steering;
-    Vector3 currentV;
+    public Vector3 currentV;
     Vector3 distance;
 
     public float slowDistance, stopDistance;
@@ -30,7 +30,7 @@ public class NewSeek : MonoBehaviour
     }
 
     
-    void Seek()
+    public void Seek()
     {
         Vector3 myPos = new Vector3(transform.position.x,0, transform.position.z);
         Vector3 targetPos = new Vector3(target.transform.position.x,0, target.transform.position.z);

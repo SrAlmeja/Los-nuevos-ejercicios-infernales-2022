@@ -16,6 +16,7 @@ public class PointsSpawner : MonoBehaviour
 
     [SerializeField] IntVariables points;
     
+    int countedPoints;
 
 private void Start()
     {
@@ -31,21 +32,25 @@ private void Start()
         nnp.transform.position = vector;
     }
 
-    private void Update()
+    void Update()
     {
         int actualPoints = points.Value;
-        int countedPoints = 0;
+        countedPoints = 0;
+        
+        Vector3 vector = SpawnPosition();
+        
         if (countedPoints != actualPoints)
         {
+            countedPoints ++;
             SpawnPosition();
-            countedPoints = actualPoints;
+            TimeToSpawn();
+            Debug.Log("Tus puntos actuales son " + actualPoints);
+            Debug.Log("Puntos contados " + countedPoints);
         }
-
-        SpawnPosition();
     }
 
     
-    Vector3 SpawnPosition()
+    public Vector3 SpawnPosition()
     {
         float x = UnityEngine.Random.Range(-20,20);
         float y = UnityEngine.Random.Range(-45,45);
@@ -55,7 +60,7 @@ private void Start()
         return vector;
     }
 
-    void TimeToSpawn()
+    public void TimeToSpawn()
     {
         Vector3 vector = SpawnPosition();
         
@@ -81,11 +86,38 @@ private void Start()
         }
     }
     
-    // private void OnTriggerEnter(GameObject primitive, GameObject go, Collider other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         ObjectPooler.RecicleObject(primitive, go);
-    //     }
-    // }
+    public void MakeDesSpawnWork()
+    {
+        Vector3 vector = SpawnPosition();
+        
+        if (points.Value<=10)
+        {
+            GameObject nnp = ObjectPooler.GetObject(normalPoints);
+            nnp.transform.position = vector;
+            DesPawn(normalPoints, nnp);
+        }
+        else if (points.Value>10 && points.Value<=20)
+        {
+            GameObject nsp = ObjectPooler.GetObject(scurryPoints);
+            nsp.transform.position = vector;
+            DesPawn(scurryPoints, nsp);
+        }
+        else if (points.Value>20 && points.Value<=30)
+        {
+            GameObject nvsp = ObjectPooler.GetObject(veryScurryPoints);
+            nvsp.transform.position = vector;
+            DesPawn(veryScurryPoints, nvsp);
+        }
+        else if (points.Value>30 && points.Value<=40)
+        {
+            GameObject e = ObjectPooler.GetObject(enemies);
+            e.transform.position = vector;
+            DesPawn(enemies, e);
+        }
+    }
+    
+    public void DesPawn(GameObject primitiva, GameObject go)
+    {
+        ObjectPooler.RecicleObject(primitiva, go);
+    }
 }

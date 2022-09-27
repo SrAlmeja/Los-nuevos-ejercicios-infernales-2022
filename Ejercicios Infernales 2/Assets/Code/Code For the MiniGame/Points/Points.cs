@@ -9,12 +9,14 @@ public class Points : MonoBehaviour
 {
     [SerializeField] IntVariables points;
     public TextMeshProUGUI pointsText;
+    PointsSpawner pointsSpawner;
 
 
     // Start is called before the first frame update
     private void Start()
     {
         points.Value = 0;
+        pointsSpawner = GetComponent<PointsSpawner>();
     }
 
     private void Update()
@@ -24,19 +26,16 @@ public class Points : MonoBehaviour
     }
 
     
-    
-    private void OnTriggerEnter(/*GameObject primitive, GameObject go, */Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Funciona el trigger");
+        int actualPoints = points.Value;
+        int countedPoints = 0;
+        
         if (other.gameObject.CompareTag("Points"))
         {
-            Debug.Log("Me tocan");
             points.Value ++;
+            // pointsSpawner.MakeDesSpawnWork();
         }
-        // if (other.gameObject.CompareTag("Points"))
-        // //     {
-        // //         ObjectPooler.RecicleObject(primitive, go);
-        // //     }
     }
 
 }
