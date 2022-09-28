@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PointsSpawner : MonoBehaviour
 {
@@ -18,7 +16,14 @@ public class PointsSpawner : MonoBehaviour
     
     int countedPoints;
 
-private void Start()
+    private NewSeek _newSeek;
+
+    private void Awake()
+    {
+        _newSeek = GetComponent<NewSeek>();
+    }
+
+    private void Start()
     {
         Vector3 vector = SpawnPosition();
         
@@ -30,30 +35,26 @@ private void Start()
         
         GameObject nnp = ObjectPooler.GetObject(normalPoints);
         nnp.transform.position = vector;
-    }
-
-    void Update()
-    {
-        int actualPoints = points.Value;
+        
         countedPoints = 0;
-        
-        Vector3 vector = SpawnPosition();
-        
-        if (countedPoints != actualPoints)
-        {
-            countedPoints ++;
-            SpawnPosition();
-            TimeToSpawn();
-            Debug.Log("Tus puntos actuales son " + actualPoints);
-            Debug.Log("Puntos contados " + countedPoints);
-        }
     }
 
-    
-    public Vector3 SpawnPosition()
+private void Update()
+{
+    int actualPoints = points.Value;
+    if (actualPoints > countedPoints)
     {
-        float x = UnityEngine.Random.Range(-20,20);
-        float y = UnityEngine.Random.Range(-45,45);
+        SpawnPosition();
+        TimeToSpawn();
+        countedPoints ++;
+        SpawnFO();
+    }
+}
+
+public Vector3 SpawnPosition()
+    {
+        float x = Random.Range(-20,20);
+        float y = Random.Range(-45,45);
         
         Vector3 vector = new Vector3(x, 0, y);
         
@@ -84,6 +85,13 @@ private void Start()
             GameObject e = ObjectPooler.GetObject(enemies);
             e.transform.position = vector;
         }
+    }
+
+    public void SpawnFO()
+    {
+        Vector3 vector = SpawnPosition();
+        GameObject FP = ObjectPooler.GetObject(followPoints);
+        FP.transform.position = vector;
     }
     
     public void MakeDesSpawnWork()
@@ -120,4 +128,5 @@ private void Start()
     {
         ObjectPooler.RecicleObject(primitiva, go);
     }
+    
 }

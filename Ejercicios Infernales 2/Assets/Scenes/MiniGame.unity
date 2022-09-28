@@ -178,10 +178,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8462881057452708735, guid: 179dd1b65a6331c4681418f9cdecd9dc, type: 3}
-      propertyPath: pointsText
-      value: 
-      objectReference: {fileID: 1369752118}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 179dd1b65a6331c4681418f9cdecd9dc, type: 3}
 --- !u!1 &489785862
@@ -285,6 +281,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &593539278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8462881057452708727, guid: 179dd1b65a6331c4681418f9cdecd9dc, type: 3}
+  m_PrefabInstance: {fileID: 14769360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &695190493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7398417863031951150, guid: 95a411b06aba9e24f8efc7aaa1d17e9f, type: 3}
@@ -315,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034793155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0000019073486, z: -0.0000019073486}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1868559303}
@@ -833,6 +834,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8462881057452708731, guid: 179dd1b65a6331c4681418f9cdecd9dc, type: 3}
   m_PrefabInstance: {fileID: 14769360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933645766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593539278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e30d411122e03d4b8b2f2860904d891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 11400000, guid: 2d895b00da6fbea4d98eb26c83578607, type: 2}
+  pointsText: {fileID: 1369752118}
 --- !u!1 &1938979278
 GameObject:
   m_ObjectHideFlags: 0
