@@ -111,47 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a2c0b9ffcc52e45a92cb418fe2c34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 7398417863031951150, guid: 95a411b06aba9e24f8efc7aaa1d17e9f, type: 3}
   speed: 25
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player: {fileID: 4359051969650469012}
+  currentV: {x: 0, y: 0, z: 0}
+  slowDistance: 0
+  stopDistance: 0
+  mass: 0
 --- !u!114 &4359051969650469018
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,14 @@ public class MoveByMouseClick : MonoBehaviour
                 targetToMove.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                targetToMove.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+            }
+        }
 
     }
 }

@@ -6,52 +6,39 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class NewSeek : MonoBehaviour
 {
-    
-    public GameObject target;
     public float speed;
     
     Vector3 myPosition;
-    Vector3 desiredV;
-    Vector3 steering;
+    Vector3 seekDesiredV;
     public Vector3 currentV;
     Vector3 distance;
-
-    public float slowDistance, stopDistance;
+    
+    public float slowRaius;
+    
     public float mass;
     void Start()
     {
         currentV = Vector3.zero;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Seek();
-    }
-
     
-    public void Seek()
+
+
+    public Vector3 Seek(Vector3 targetPosition)
     {
         Vector3 myPos = new Vector3(transform.position.x,0, transform.position.z);
-        Vector3 targetPos = new Vector3(target.transform.position.x,0, target.transform.position.z);
+        Vector3 targetPos = new Vector3(targetPosition.x,0, targetPosition.z);
         //Direction
         distance = (targetPos - myPos);
-        desiredV = (distance.normalized * speed);
-        steering = ((desiredV - currentV) / mass);
-        currentV += (steering) * Time.deltaTime;
-
-        if (distance.magnitude > slowDistance)
+        if (slowRaius >= distance.magnitude)
         {
-            currentV = currentV * 1 ;
+            seekDesiredV = ((distance.normalized * speed) * (distance.magnitude/slowRaius));
         }
-        else if (distance.magnitude <= slowDistance)
+        else
         {
-            currentV = steering * 0.5f;
+            seekDesiredV = (distance.normalized * speed);
         }
-        else if (distance.magnitude <= stopDistance)
-        { 
-            currentV = steering * 0f;
-        }
-        transform.position += ((currentV) * Time.deltaTime);
+        Vector3 steering = (seekDesiredV - currentV) / mass;
+        
+        return steering;
     }
 }

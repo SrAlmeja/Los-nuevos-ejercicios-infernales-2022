@@ -1,41 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : BehaviorsSystem
 {
-    [SerializeField] IntVariables points;
-    public TextMeshProUGUI pointsText;
+    public GameObject target;
+
     PointsSpawner _pointsSpawner;
-
-
-    private void Awake()
+    // Start is called before the first frame update
+    private void Start()
     {
         _pointsSpawner = GetComponent<PointsSpawner>();
     }
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        points.Value = 0;
-    }
-
     private void Update()
     {
-        points.Value = Mathf.Clamp(points.Value, 00, 40);
-        pointsText.text = points.Value.ToString();
+        Move();
+        _pointsSpawner.TargetsSpawnerPosition();
     }
 
-    
-    private void OnTriggerEnter(Collider other)
+
+    void Move()
     {
-        if (other.gameObject.CompareTag("Points"))
-        {
-            points.Value ++;
-            Debug.Log("Trigger Funciona");
-        }
-    }
+        Vector3 seek = this.seek(target.transform.position);
+        transform.position += ((currentV) * Time.deltaTime);
+        Vector3 steering = seek;
 
+        this.currentV = Vector3.ClampMagnitude(this.currentV + steering * Time.deltaTime, this.speed);
+        transform.position += this.currentV * Time.deltaTime;
+    }
+    
+    
+    
 }

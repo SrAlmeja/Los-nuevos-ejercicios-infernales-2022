@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BehaviorsSystem : MonoBehaviour
@@ -7,17 +8,15 @@ public class BehaviorsSystem : MonoBehaviour
     //Seeking Var:
     public float speed;
     Vector3 myPosition;
-    Vector3 desiredV;
-    Vector3 currentV;
+    Vector3 seekDesiredV;
+    public Vector3 currentV;
     Vector3 distance;
-    public float slowDistance, stopDistance;
+    public float slowRadius;
     public float mass;
 
     //Flee Var:
-    [SerializeField] GameObject[] fleeTargets;
     Vector3 fleeDesiredV;
-    Vector3 fleeCurrentV;
-    Vector3 fleeSteering;
+    Vector3 fleeDistance;
     
     
     // Start is called before the first frame update
@@ -26,40 +25,41 @@ public class BehaviorsSystem : MonoBehaviour
         currentV = Vector3.zero;
     }
 
-    public Vector3 doSeek(Vector3 targetPosition)
+    public Vector3 seek(Vector3 targetPosition)
     {
-        distance = (targetPosition - transform.position);
-        desiredV = (distance.normalized * speed);
-        Vector3 steering = ((desiredV - currentV) / mass);
-        currentV += (steering) * Time.deltaTime;
-
+        Vector3 myPos = new Vector3(transform.position.x,0, transform.position.z);
+        Vector3 targetPos = new Vector3(targetPosition.x,0, targetPosition.z);
+        //Direction
+        distance = (targetPos - myPos);
+        if (slowRadius >= distance.magnitude)
+        {
+            Debug.Log("Area lenta ");
+            seekDesiredV = (distance.normalized * (speed * (distance.magnitude/slowRadius)));
+        }
+        else if(slowRadius < distance.magnitude)
+        {Debug.Log("Steering normal");
+            seekDesiredV = (distance.normalized * speed);
+        }
+        Vector3 steering = (seekDesiredV - currentV) / mass;
+        
         return steering;
     }
 
-    // public Vector3 doFlee()
-    // {
-    //     fleeDesiredV = -desiredV;
-    // }
-
-    public Vector3 doArrival(Vector3 targetPosition)
+    public Vector3 flee(Vector3 targetPosition)
     {
-        Vector3 steering = doSeek(targetPosition);
-        if (distance.magnitude > slowDistance)
+        Vector3 steering = seek(targetPosition);
+        if (slowRadius <= distance.magnitude)
         {
-            currentV = currentV * 1 ;
+            seekDesiredV = (distance.normalized * speed );
         }
-        else if (distance.magnitude <= slowDistance)
+        else if (slowRadius > distance.magnitude)
         {
-            currentV = steering * 0.5f;
+            seekDesiredV = (distance.normalized * (speed * (distance.magnitude/slowRadius)));
         }
-        else if (distance.magnitude <= stopDistance)
-        { 
-            currentV = steering * 0f;
-        }
-
-        return steering;
+        return steering * (-1);
     }
 
+    
 //     public Vector3 doWander()
 //     {
 //         
