@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3516530786380088653}
   - component: {fileID: 6781566274726822621}
   - component: {fileID: 6924357210738319377}
+  - component: {fileID: 8626962327094596762}
   m_Layer: 0
   m_Name: Cell.Name
   m_TagString: Untagged
@@ -62,7 +63,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cfc9f3f6313e26241a31e39e5cb2de12, type: 2}
+  - {fileID: 2100000, guid: 152bd74c5fcc151418b0eebae50bcdea, type: 2}
+  - {fileID: 2100000, guid: 6dc54327dd62ecf41b4b68affb0a91d3, type: 2}
+  - {fileID: 2100000, guid: fd27c4f31d22f87438f71d3d8e08bcb1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,3 +101,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8626962327094596762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151860552573073052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa86f16b5b1bc3b40a1f0e3197b2bbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalMat: {fileID: 2100000, guid: 152bd74c5fcc151418b0eebae50bcdea, type: 2}
+  redMat: {fileID: 2100000, guid: 6dc54327dd62ecf41b4b68affb0a91d3, type: 2}
+  floodMat: {fileID: 2100000, guid: fd27c4f31d22f87438f71d3d8e08bcb1, type: 2}
