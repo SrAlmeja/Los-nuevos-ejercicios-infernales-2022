@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FindPositionMouse : MonoBehaviour
 {
-    Renderer objectRender;
+    MeshRenderer objectRender;
     [SerializeField] Material normalMat, redMat, floodMat;
     
     // Start is called before the first frame update
     void Start()
     {
-        objectRender = GetComponent<Renderer> ();
+        objectRender = GetComponent<MeshRenderer> ();
         objectRender.enabled = true;
         objectRender.sharedMaterial = normalMat;
+        
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class FindPositionMouse : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Se ha usado el mouse");
+            Debug.Log("Se puso obstaculo");
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
@@ -38,4 +39,15 @@ public class FindPositionMouse : MonoBehaviour
         }
         
     }
+    
+    // void Prepare()
+    // {
+    //     if (Renderer != null) return;
+    //     try
+    //     {
+    //         Renderer = GetComponent<MeshRenderer>();
+    //         tileColor = meshRenderer.material.color;
+    //     }
+    //     catch { Debug.LogWarning("Could not find meshRenderer"); }
+    // }
 }

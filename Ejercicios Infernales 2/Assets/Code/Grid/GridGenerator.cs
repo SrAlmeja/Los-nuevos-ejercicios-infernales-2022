@@ -13,6 +13,7 @@ public class GridGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         int i, j;
         
         for (i = 0; i <height; i++)
