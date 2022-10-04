@@ -340,12 +340,21 @@ MonoBehaviour:
   veryScurryPoints: {fileID: 6044155846463847083, guid: 9f9b817027591ae4ab39011ec0e444ab, type: 3}
   enemies: {fileID: 1243588775299287311, guid: c48336286476c854ea17cacb8483a4fd, type: 3}
   followPoints: {fileID: 1467992023675790649, guid: 35d096210268c7a438282634b26ebd4a, type: 3}
+  pointTargets: {fileID: 0}
   sizeNP: 10
   sizeSP: 10
   sizeVSP: 10
   sizeE: 10
   sizeFO: 40
+  sizePT: 0
   points: {fileID: 11400000, guid: 2d895b00da6fbea4d98eb26c83578607, type: 2}
+  spawnerOfTargets: {fileID: 0}
+  timerBoolNP: {fileID: 0}
+  timerBoolSP: {fileID: 0}
+  timerBoolVSP: {fileID: 0}
+  timerBoolE: {fileID: 0}
+  timerBoolFO: {fileID: 0}
+  timerBoolPT: {fileID: 0}
 --- !u!1 &1173193930
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,9 +709,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1684609011}
-  - component: {fileID: 1684609010}
   - component: {fileID: 1684609009}
   - component: {fileID: 1684609008}
+  - component: {fileID: 1684609012}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -745,7 +754,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.86
+  orthographic size: 21.53
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -761,24 +770,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1684609010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684609007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc783ec5d16496429edec757d357fbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 695190493}
-  speed: 15
-  currentV: {x: 0, y: 0, z: 0}
-  slowDistance: 3
-  stopDistance: 0.1
-  mass: 1
 --- !u!4 &1684609011
 Transform:
   m_ObjectHideFlags: 0
@@ -795,6 +786,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1684609012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684609007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e30d411122e03d4b8b2f2860904d891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  currentV: {x: 0, y: 0, z: 0}
+  slowRadius: 10
+  mass: 3
+  target: {fileID: 695190493}
 --- !u!1 &1868559302
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +842,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8462881057452708731, guid: 179dd1b65a6331c4681418f9cdecd9dc, type: 3}
   m_PrefabInstance: {fileID: 14769360}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1933645766
+--- !u!114 &1933645771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -843,11 +851,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 593539278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e30d411122e03d4b8b2f2860904d891, type: 3}
+  m_Script: {fileID: 11500000, guid: 47f3be5b5a1a7634f96671fca1f5fc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   points: {fileID: 11400000, guid: 2d895b00da6fbea4d98eb26c83578607, type: 2}
   pointsText: {fileID: 1369752118}
+  timerBoolNP: {fileID: 0}
+  timerBoolSP: {fileID: 0}
+  timerBoolVSP: {fileID: 0}
+  timerBoolE: {fileID: 0}
+  timerBoolFO: {fileID: 0}
+  timerBoolPT: {fileID: 0}
 --- !u!1 &1938979278
 GameObject:
   m_ObjectHideFlags: 0
