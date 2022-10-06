@@ -1,0 +1,15 @@
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\bin\Debug\net6.0\Recursividad.exe
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\bin\Debug\net6.0\Recursividad.deps.json
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\bin\Debug\net6.0\Recursividad.runtimeconfig.json
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\bin\Debug\net6.0\Recursividad.dll
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\bin\Debug\net6.0\Recursividad.pdb
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.csproj.AssemblyReference.cache
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.GeneratedMSBuildEditorConfig.editorconfig
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.AssemblyInfoInputs.cache
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.AssemblyInfo.cs
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.csproj.CoreCompileInputs.cache
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.dll
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\refint\Recursividad.dll
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.pdb
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\Recursividad.genruntimeconfig.cache
+F:\Repositorios\Amerike\5to\Los-nuevos-ejercicios-infernales-2022\Ejercicios recursivos\Recursividad\Recursividad\obj\Debug\net6.0\ref\Recursividad.dll

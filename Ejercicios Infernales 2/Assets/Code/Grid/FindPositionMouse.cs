@@ -37,6 +37,6 @@ public class FindPositionMouse : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<FindPositionMouse>().objectRender.material = redMat;
             }
-        }
+        } 
     }
 }

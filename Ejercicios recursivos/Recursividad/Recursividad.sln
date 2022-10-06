@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursividad", "Recursividad\Recursividad.csproj", "{14C3DFDB-DD60-47AE-96C8-F7F78026DAEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recursividad Factorial", "Recursividad Factorial", "{BCFD6CE7-8F8A-4E71-88AF-2EACC9B82781}"
+	ProjectSection(SolutionItems) = preProject
+		RecursividadFactorial.cs = RecursividadFactorial.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recursividad", "Recursividad", "{553EEA0A-CB82-48AF-B04D-F7275096EF59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14C3DFDB-DD60-47AE-96C8-F7F78026DAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C3DFDB-DD60-47AE-96C8-F7F78026DAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C3DFDB-DD60-47AE-96C8-F7F78026DAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C3DFDB-DD60-47AE-96C8-F7F78026DAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
