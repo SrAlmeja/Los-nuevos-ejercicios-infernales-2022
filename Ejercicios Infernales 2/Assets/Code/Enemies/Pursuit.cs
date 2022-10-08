@@ -8,7 +8,6 @@ public class Pursuit : NewSeek
     // public bool isEvading;
     //
     // Player _player;
-    // Vector3 futurePosition;
     //
     // public bool isDynamic;
     // Vector3 framePlayerVelocity;
@@ -24,13 +23,13 @@ public class Pursuit : NewSeek
     // // Update is called once per frame
     // void Update()
     // {
-    //     DoPursuit();
+    //     DoPursuit(target.transform.position);
     // }
     //
     // Vector3 DoPursuit(Vector3 targetPosition)
     // {
     //     Vector3 currentPlayerVelocity = (targetPosition - prevPosition) / Time.deltaTime;
     // }
-    
-    
+    //
+    //
 }
