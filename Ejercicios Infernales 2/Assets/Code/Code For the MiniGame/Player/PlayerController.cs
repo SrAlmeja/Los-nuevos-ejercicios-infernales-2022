@@ -5,6 +5,7 @@ public class PlayerController : BehaviorsSystem
     public GameObject target;
     PointsSpawner _pointsSpawner;
 
+    Vector2 position;
     public Vector3 FrameV;
     Vector3 oldPos;
     

@@ -1,3 +1,5 @@
+using System;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +7,10 @@ using UnityEngine;
 public class FindPositionMouse : MonoBehaviour
 {
     public MeshRenderer objectRender;
-    [SerializeField] Material normalMat, redMat, floodMat;
+    private FloodFill flood;
+    [SerializeField] public Material normalMat, redMat, floodMat, choosenMat, ironMat;
+    private string[] substrings;
+    private int x, y;
     
     // Start is called before the first frame update
     void Start()
@@ -13,30 +18,46 @@ public class FindPositionMouse : MonoBehaviour
         objectRender = GetComponent<MeshRenderer> ();
         objectRender.enabled = true;
         objectRender.material = normalMat;
-        
+        flood = GetComponent<FloodFill>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (objectRender.material == normalMat) 
+        {objectRender.material = ironMat;}
+        
+        if (flood.enablePlane)
         {
-            Debug.Log("Se ha usado el mouse");
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Input.GetMouseButtonDown(0))
             {
-                hit.collider.gameObject.GetComponent<FindPositionMouse>().objectRender.material = floodMat;
+                substrings = Regex.Split(this.gameObject.name, "-");
+                x = int.Parse(substrings[0]);
+                y = int.Parse(substrings[1]);
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                {
+                    flood.xSeed = x;
+                    flood.ySeed = y;
+                    hit.collider.gameObject.GetComponent<FindPositionMouse>().objectRender.material = choosenMat;
+                }
             }
         }
-
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Se puso obstaculo");
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 hit.collider.gameObject.GetComponent<FindPositionMouse>().objectRender.material = redMat;
             }
-        } 
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (objectRender.material == ironMat)
+        {
+            objectRender.material = normalMat;
+        }
     }
 }

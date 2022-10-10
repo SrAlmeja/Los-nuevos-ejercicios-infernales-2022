@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa86f16b5b1bc3b40a1f0e3197b2bbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectRender: {fileID: 0}
   normalMat: {fileID: 2100000, guid: 152bd74c5fcc151418b0eebae50bcdea, type: 2}
   redMat: {fileID: 2100000, guid: 6dc54327dd62ecf41b4b68affb0a91d3, type: 2}
   floodMat: {fileID: 2100000, guid: fd27c4f31d22f87438f71d3d8e08bcb1, type: 2}
+  choosenMat: {fileID: 2100000, guid: e74ed91de9f49fc4ab6bfd1108589021, type: 2}
+  ironMat: {fileID: 2100000, guid: b8f52af05df475c4b824732a637a9ca4, type: 2}

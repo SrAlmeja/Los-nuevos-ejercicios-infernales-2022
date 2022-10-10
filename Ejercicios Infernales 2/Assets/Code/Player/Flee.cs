@@ -5,10 +5,10 @@ using UnityEngine;
 public class Flee : MonoBehaviour
 {
     //Seek
-    
+
     public GameObject target;
     public float speed;
-    
+
     Vector3 myPosition;
     Vector3 desiredV;
     public Vector3 currentV;
@@ -26,17 +26,19 @@ public class Flee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Seek();
     }
 
 
-    // public Vector3 Seek()
-    // {
-    //     Vector3 myPos = new Vector3(transform.position.x, 0, transform.position.z);
-    //     Vector3 targetPos = new Vector3(target.transform.position.x, 0, target.transform.position.z);
-    //     //Direction
-    //     distance = (targetPos - myPos);
-    //     desiredV = (distance.normalized * speed);
-    //     Vector3 steering = desiredV - currentV;
-    // }
+    public void  Seek()
+    {
+        Vector3 myPos = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 targetPos = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+        //Direction
+        distance = (targetPos - myPos);
+        desiredV = (distance.normalized * speed);
+        Vector3 steering = desiredV - currentV;
+    }
 }
+
+

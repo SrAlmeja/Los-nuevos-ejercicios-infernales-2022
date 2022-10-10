@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pursuit : NewSeek
 {
+    
+    
     // public GameObject target;
     // public bool isEvading;
     //
