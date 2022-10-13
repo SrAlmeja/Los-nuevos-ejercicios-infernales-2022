@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class BoardManager : MonoBehaviour
 {
     [SerializeField] public int height, width;
-    [SerializeField] int scale;
     public GameObject[,] planeParemt;
     public GameObject piso;
 
@@ -31,16 +30,13 @@ public class BoardManager : MonoBehaviour
                 thePlane.name = $"{i}-{j}";
                 
                 thePlane.transform.parent = transform;
-                thePlane.transform.localScale *= scale;
-                sizeX = thePlane.transform.localScale.x;
-                sizeY = thePlane.transform.localScale.y;
-                thePlane.transform.position = new Vector3(sizeX + (0.5f + i),0,sizeY + (0.5f + j));
+                thePlane.transform.position = new Vector3(0.5f + i,0,0.5f + j);
 
                 planeParemt[i, j] = thePlane;
 
             }
         }
 
-        transform.position = new Vector3(sizeX * (-height / 2), sizeY * (-width / 2), 0);
+        transform.position = new Vector3(-height / 2, sizeY * -width / 2, 0);
     }
 }
