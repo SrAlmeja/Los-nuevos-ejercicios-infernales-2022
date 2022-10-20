@@ -37,6 +37,6 @@ public class Board : MonoBehaviour
             }
         }
 
-        transform.position = new Vector3(sizeX * (-height / 2), sizeY * (-widht / 2), 0);
+        transform.position = new Vector3(sizeX * (-widht / 2), sizeY * (-height / 2), 0);
     }
 }
