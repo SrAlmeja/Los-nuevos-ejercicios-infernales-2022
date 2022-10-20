@@ -5,31 +5,47 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    private Vector2 size;
-    private GameObject prefab;
-    private bool isIso;
-    private float Offset;
+    [SerializeField]  private Vector2 size;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private bool isIso;
+    [SerializeField] private float Offset;
     private Color selectedBlock;
     private Color startColor;
     private Color endColor;
-    private Map _map;
+    [SerializeField] private bool _goalSelected;
+    //private Fields _fields;
+    private Map _m;
 
     private void Awake()
     {
-        _map = GetComponent<Map>();
-        _map.CreateMap();
+        _m = GetComponent<Map>();
+        _m.CreateMap(prefab);
+        _m.Width = 
     }
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    public void RestartMap()
+    {
+        
+    }
+
+    public Vector2 updatePoints(Vector2 theVector, int theInt)
+    {
+        return theVector;
+    }
+    
+    public Vector2 updateObstacles(Vector2 theVector, int theInt)
+    {
+        return theVector;
     }
 }

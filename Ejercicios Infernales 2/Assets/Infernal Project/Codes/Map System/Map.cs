@@ -2,16 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Map : MonoBehaviour
 {
+    [Header ("Board")]
     private GameObject[,] _map;
-    [SerializeField]private int _height, _width;
+    private int _height, _width;
+    private int _scale;
     private Vector2 _rotX, _rotY;
-    [SerializeField] private float _offset;
+    private float _offset;
     private bool _isIso;
-    public GameObject prefab;
+    private GameObject _prefab;
+    private Block _start, _goal;
+    
 
+    public int  Width
+    {
+        get { return _width; }
+        set { _width = value; }
+    }
+    public int  Height
+    {
+        get { return _height; }
+        set { _height = value; }
+    }
+    public int  Scale
+    {
+        get { return _scale; }
+        set { _scale = value; }
+    }
+
+    public GameObject Prefab
+    {
+        get { return _prefab; }
+        set { _prefab = value; }
+    }
+    
     private MapManager _mapManager;
     
 
@@ -20,7 +47,7 @@ public class Map : MonoBehaviour
         _mapManager = GetComponent<MapManager>();
     }
     
-    public void CreateMap()
+    public void CreateMap(GameObject  prefab, bool iso=false, Sprite sprite= null)
     {
         _map = new GameObject[_height, _width];
         // if (_isIso = true)
@@ -36,6 +63,7 @@ public class Map : MonoBehaviour
                 floor.name = $"{i}-{j}";
 
                 floor.transform.parent = transform;
+                floor.transform.localScale  = scale
                 floor.transform.position = new Vector3( i+(-_height / 2) , j+(-_width / 2),0);
             }           
         }
