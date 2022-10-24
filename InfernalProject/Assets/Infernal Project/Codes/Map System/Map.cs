@@ -60,14 +60,10 @@ public class Map : MonoBehaviour
         _mapManager = GetComponent<MapManager>();
     }
     
-    public void CreateMap(GameObject  prefab, bool iso=false, Sprite sprite= null)
+    public void CreateMap(GameObject  prefab, bool iso=false, SpriteRenderer sprite= null)
     {
         _map = new GameObject[_height, _width];
-        // if (_isIso = true)
-        // {
-        //     CreateIsoMap();
-        // }
-        // else
+        
         for (int i = 0; i < _height; i++)
         {
             for (int j = 0; j < _width; j++)
@@ -84,15 +80,30 @@ public class Map : MonoBehaviour
                 _map[i, j] = floor;
             }           
         }
+        
+        if (_isIso = true)
+        {
+            GameObject floor = prefab;
+            int x = floor.transform.position.x;
+            int y = floor.transform.position.y;
+            IsoTransform(prefab, sprite, x, y);
+
+        }
 
         //transform.position = new Vector3(sizeX * (_width / 2), sizeY * (_height / 2));
     }
 
-
-
-    public void CreateIsoMap(GameObject gameObject, SpriteRenderer, )
+    
+    private Vector3 IsoTransform(GameObject platform, SpriteRenderer sprite, int x, int y)
     {
-        
+        Vector3 scale = platform.transform.lossyScale;
+        Vector3 pos = platform.transform.position;
+ 
+        float newX = (x - y) * (scale.x * .69f);
+        float newY = (x + y) * (scale.y * .4f);
+        Vector3 result = new Vector3(newX, -newY + (_height * .5f), 0);
+        return result;
+
     }
 
     public void centerMap()

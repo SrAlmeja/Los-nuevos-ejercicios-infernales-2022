@@ -20,7 +20,6 @@ public class MapManager : MonoBehaviour
     {
         _m = GetComponent<Map>();
         _m.CreateMap(prefab);
-        _m.Width = 
     }
 
     

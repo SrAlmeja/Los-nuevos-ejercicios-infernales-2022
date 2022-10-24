@@ -9,7 +9,7 @@ public class Map : MonoBehaviour
     [Header ("Board")]
     private GameObject[,] _map;
     private int _height, _width;
-    private int _scale;
+    private float _scale;
     private Vector2 _rotX, _rotY;
     private float _offset;
     private bool _isIso;
@@ -27,7 +27,7 @@ public class Map : MonoBehaviour
         get { return _height; }
         set { _height = value; }
     }
-    public int  Scale
+    public float  Scale
     {
         get { return _scale; }
         set { _scale = value; }
@@ -63,7 +63,7 @@ public class Map : MonoBehaviour
                 floor.name = $"{i}-{j}";
 
                 floor.transform.parent = transform;
-                floor.transform.localScale  = scale
+                
                 floor.transform.position = new Vector3( i+(-_height / 2) , j+(-_width / 2),0);
             }           
         }
