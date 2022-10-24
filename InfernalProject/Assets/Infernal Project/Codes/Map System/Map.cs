@@ -16,6 +16,7 @@ public class Map : MonoBehaviour
     private bool _isIso;
     private GameObject _prefab;
     private Block _start, _goal;
+    private int _order;
     
     private float sizeX, sizeY;
     public int  Width
@@ -84,26 +85,24 @@ public class Map : MonoBehaviour
         if (_isIso = true)
         {
             GameObject floor = prefab;
-            int x = floor.transform.position.x;
-            int y = floor.transform.position.y;
-            IsoTransform(prefab, sprite, x, y);
-
+            int x = (int)floor.transform.position.x;
+            int y = (int)floor.transform.position.y;
+            CreateIsoMap(prefab, sprite, x, y);
         }
 
         //transform.position = new Vector3(sizeX * (_width / 2), sizeY * (_height / 2));
     }
 
     
-    private Vector3 IsoTransform(GameObject platform, SpriteRenderer sprite, int x, int y)
+    private void CreateIsoMap(GameObject platform, SpriteRenderer sprite, int x, int y)
     {
-        Vector3 scale = platform.transform.lossyScale;
-        Vector3 pos = platform.transform.position;
- 
-        float newX = (x - y) * (scale.x * .69f);
-        float newY = (x + y) * (scale.y * .4f);
-        Vector3 result = new Vector3(newX, -newY + (_height * .5f), 0);
-        return result;
+        _rotX = new Vector2(0.5f * (sprite.bounds.size.x + _offset), 0.25f * (sprite.bounds.size.y + _offset));
+        _rotY = new Vector2(-0.5f * (sprite.bounds.size.x + _offset), 0.25f * (sprite.bounds.size.y + _offset));
 
+        Vector2 rotate = (x * _rotX) + (y * _rotY);
+
+        sprite.sortingOrder = _order;
+        _order -= 1;
     }
 
     public void centerMap()

@@ -361,6 +361,6 @@ MonoBehaviour:
   _size: {x: 9, y: 9}
   _scale: 0.045
   _prefab: {fileID: 4457544346991525505, guid: a96e7a5d386520042853267951dee435, type: 3}
-  _isIso: 0
+  _isIso: 1
   _Offset: 0.5
   _goalSelected: 0
