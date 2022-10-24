@@ -358,9 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30875c71ad6456a4c9479574f734b789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: {x: 9, y: 9}
-  _scale: 0.045
-  _prefab: {fileID: 4457544346991525505, guid: a96e7a5d386520042853267951dee435, type: 3}
+  _size: {x: 3, y: 3}
+  _scale: 3
+  _prefab: {fileID: 198316, guid: 5a23baf25432bd94a990f74b3c662334, type: 3}
   _isIso: 1
-  _Offset: 0.5
+  _Offset: 1
   _goalSelected: 0

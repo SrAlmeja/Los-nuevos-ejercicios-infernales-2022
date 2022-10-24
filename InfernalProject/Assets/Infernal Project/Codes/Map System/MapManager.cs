@@ -28,12 +28,14 @@ public class MapManager : MonoBehaviour
         _m.IsIso = _isIso;
         _m.Scale = _scale;
         _m.Offset = _Offset;
+        
+        _m.CreateMap(_prefab);
     }
 
     
     void Start()
     {
-        _m.CreateMap(_prefab);
+        
     }
     
     void Update()

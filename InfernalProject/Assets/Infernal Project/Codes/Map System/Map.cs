@@ -18,7 +18,6 @@ public class Map : MonoBehaviour
     private Block _start, _goal;
     private int _order;
     
-    private float sizeX, sizeY;
     public int  Width
     {
         get { return _width; }
@@ -35,6 +34,16 @@ public class Map : MonoBehaviour
         set { _scale = value; }
     }
 
+    public Vector2Int size
+    {
+        get { return new Vector2Int(_width, _height); }
+        set
+        {
+            _width = value.x;
+            _height = value.y;
+        }
+    }
+    
     public bool IsIso
     {
         get { return _isIso; }
@@ -63,44 +72,48 @@ public class Map : MonoBehaviour
     
     public void CreateMap(GameObject  prefab, bool iso=false, SpriteRenderer sprite= null)
     {
+        _order = _width * _height;
         _map = new GameObject[_height, _width];
         
-        for (int i = 0; i < _height; i++)
+        for (int y=0; y<_height; y++)
         {
-            for (int j = 0; j < _width; j++)
+            for (int x=0; x<_width; x++)
             {
                 GameObject floor = Instantiate(prefab);
-                floor.name = $"{i}-{j}";
-
+                SpriteRenderer renderer = floor.GetComponent<SpriteRenderer>();
                 floor.transform.parent = transform;
+                floor.name = $"{x}-{y}";
+                
                 floor.transform.localScale *= _scale;
-                sizeX = floor.transform.localScale.x;
-                sizeY = floor.transform.localScale.y;
-                floor.transform.position = new Vector3( sizeX +_offset * (0.5f+i) , sizeX +_offset * (0.5f+j),0);
-
-                _map[i, j] = floor;
+                
+                floor.transform.position = new Vector3( (size.x + _offset)*(0.5f+x) , (size.y + _offset)*(0.5f+y),0);
+                
+                if (_isIso = true)
+                {
+                    CreateIsoMap(prefab, renderer, x, y);
+                }
+                
+                _map[x, y] = floor;
             }           
         }
-        
-        if (_isIso = true)
-        {
-            GameObject floor = prefab;
-            int x = (int)floor.transform.position.x;
-            int y = (int)floor.transform.position.y;
-            CreateIsoMap(prefab, sprite, x, y);
-        }
-
-        //transform.position = new Vector3(sizeX * (_width / 2), sizeY * (_height / 2));
     }
 
     
     private void CreateIsoMap(GameObject platform, SpriteRenderer sprite, int x, int y)
     {
+        Destroy(platform.GetComponent<BoxCollider2D>());
+        platform.AddComponent<PolygonCollider2D>();
+
+        PolygonCollider2D polygon = platform.GetComponent<PolygonCollider2D>();
+        polygon.isTrigger = true;
+        //polygon.points = _isoPoints;
+        
         _rotX = new Vector2(0.5f * (sprite.bounds.size.x + _offset), 0.25f * (sprite.bounds.size.y + _offset));
         _rotY = new Vector2(-0.5f * (sprite.bounds.size.x + _offset), 0.25f * (sprite.bounds.size.y + _offset));
 
         Vector2 rotate = (x * _rotX) + (y * _rotY);
-
+        platform.transform.position = rotate;
+        
         sprite.sortingOrder = _order;
         _order -= 1;
     }

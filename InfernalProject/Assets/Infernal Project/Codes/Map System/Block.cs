@@ -12,15 +12,23 @@ public class Block : MonoBehaviour
     private int _obstacle;
     private int _moveCoast;
 
-    private void Awake()
+    public int X
     {
-        throw new NotImplementedException();
+        get { return _x; }
+        set { _x = value; }
     }
     
-    void Update()
+    public int y
+    {
+        get { return _y; }
+        set { _y = value; }
+    }
+    
+    private void Awake()
     {
         
     }
+    
 
     public void OnMouseOver()
     {
