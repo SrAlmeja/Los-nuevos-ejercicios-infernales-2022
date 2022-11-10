@@ -7,8 +7,10 @@ using UnityEngine.Timeline;
 
 public class Map : MonoBehaviour
 {
-    [Header ("Board")]
-    private GameObject[,] _map;
+    [Header("Board")] private GameObject[,] _map;
+
+    [Header("Board Settings")]
+
     private int _height, _width;
     private float _scale;
     private Vector2 _rotX, _rotY;
@@ -18,23 +20,12 @@ public class Map : MonoBehaviour
     private Block _start, _goal;
     private int _order;
     
-    public int  Width
-    {
-        get { return _width; }
-        set { _width = value; }
-    }
-    public int  Height
-    {
-        get { return _height; }
-        set { _height = value; }
-    }
-    public float Scale
-    {
-        get { return _scale; }
-        set { _scale = value; }
-    }
+    public int  Width { get { return _width; } set { _width = value; } }
+    public int  Height { get { return _height; } set { _height = value; } }
+    public float Scale { get { return _scale; } set { _scale = value; } }
 
-    public Vector2Int size
+    
+    public Vector2Int Size
     {
         get { return new Vector2Int(_width, _height); }
         set
@@ -43,6 +34,8 @@ public class Map : MonoBehaviour
             _height = value.y;
         }
     }
+    
+    
     
     public bool IsIso
     {
@@ -86,7 +79,7 @@ public class Map : MonoBehaviour
                 
                 floor.transform.localScale *= _scale;
                 
-                floor.transform.position = new Vector3( (size.x + _offset)*(0.5f+x) , (size.y + _offset)*(0.5f+y),0);
+                floor.transform.position = new Vector3( (_offset)*(0.5f+x) , (_offset)*(0.5f+y),0);
                 
                 if (_isIso = true)
                 {
